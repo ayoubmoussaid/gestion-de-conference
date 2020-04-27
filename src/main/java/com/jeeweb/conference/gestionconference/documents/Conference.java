@@ -19,6 +19,7 @@ public class Conference {
 	@DBRef
 	private List<Session> sessions;
 
+	//ok
 	@Override
 	public String toString() {
 		return "Conference{" +
