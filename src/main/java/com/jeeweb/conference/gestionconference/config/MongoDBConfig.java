@@ -37,6 +37,7 @@ public class MongoDBConfig{
 			cuserRepository.save(user);
 			user = cuserRepository.findCuserById(2);
 			System.out.println(user.toString());
+			//test github
 		};
 	}
 }
