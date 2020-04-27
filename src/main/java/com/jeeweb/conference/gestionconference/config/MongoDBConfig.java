@@ -1,45 +1,43 @@
-//package com.jeeweb.conference.gestionconference.config;
-//
-//import com.jeeweb.conference.gestionconference.documents.Session;
-//import com.jeeweb.conference.gestionconference.documents.User;
-//import com.jeeweb.conference.gestionconference.repository.PropositionRepository;
-//import com.jeeweb.conference.gestionconference.repository.ReviewsRepository;
-//import com.jeeweb.conference.gestionconference.repository.SessionRepository;
-//import com.jeeweb.conference.gestionconference.repository.UsersRepository;
-//import org.springframework.boot.CommandLineRunner;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-//
-//import java.util.ArrayList;
-//import java.util.Date;
-//import java.util.stream.Stream;
-//
-//@EnableMongoRepositories(basePackageClasses = UsersRepository.class)
-//@Configuration
-//public class MongoDBConfig {
-//	@Bean
-//	CommandLineRunner commandLineRunner(UsersRepository usersRepository,
-//										SessionRepository sessionRepository,
-//										PropositionRepository propositionRepository,
-//										ReviewsRepository reviewsRepository
-//										) {
-//		return onfeargs -> {
-//			usersRepository.save(new User(1, "ayoub", "moussaid", 1500L));
-//			usersRepository.save(new User(2, "youssef", "hamid", 2300L));
-//
-//			sessionRepository.deleteAll();
-//			Stream.of("S1 Session une", "S2 Session tanya", "S3 Session talta").forEach(s -> {
-//				sessionRepository.save(new Session(s.split(" ")[0], s.split(" ")[1], new Date(), "Room"+s.split(" ")[0]));
-//			});
-//			sessionRepository.findAll().forEach(System.out::println);
-//
-//			sessionRepository.deleteAll();
-//			Stream.of("S1 Session une", "S2 Session tanya", "S3 Session talta").forEach(s -> {
-//				sessionRepository.save(new Session(s.split(" ")[0], s.split(" ")[1], new Date(), "Room"+s.split(" ")[0]));
-//			});
-//			sessionRepository.findAll().forEach(System.out::println);
-//
-//		};
-//	}
-//}
+package com.jeeweb.conference.gestionconference.config;
+
+import com.jeeweb.conference.gestionconference.documents.Conference;
+import com.jeeweb.conference.gestionconference.documents.Cuser;
+import com.jeeweb.conference.gestionconference.documents.Session;
+import com.jeeweb.conference.gestionconference.documents.User;
+import com.jeeweb.conference.gestionconference.repository.ConferenceRepository;
+import com.jeeweb.conference.gestionconference.repository.CuserRepository;
+import com.jeeweb.conference.gestionconference.repository.SessionRepository;
+import com.jeeweb.conference.gestionconference.repository.UsersRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+
+import javax.validation.constraints.Null;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Optional;
+import java.util.stream.Stream;
+
+@Configuration
+public class MongoDBConfig {
+
+	@Bean
+	CommandLineRunner commandLineRunner(UsersRepository usersRepository,
+	                                    SessionRepository sessionRepository,
+	                                    CuserRepository cuserRepository,
+	                                    ConferenceRepository conferenceRepository
+	) {
+		return args -> {
+			cuserRepository.save(new Cuser(1, "rainman", "ayoub", "moussaid", "phonenumber", "test@test.com", "something","admin"));
+			cuserRepository.save(new Cuser(2, "hamid", "achraf", "lasri", "phonenumber", "test@test.com", "something","chair"));
+			Conference conf = new Conference(1, "intelligence artificielle", new Date(), new Date(), null);
+			conferenceRepository.save(conf);
+
+			Cuser user = cuserRepository.findById(2).get();
+			user.getConferences().add(conf);
+			cuserRepository.save(user);
+		};
+	}
+}

@@ -22,31 +22,4 @@ public class GestionConferenceApplication {
 		SpringApplication.run(GestionConferenceApplication.class, args);
 
 	}
-
-	@Bean
-	CommandLineRunner start(UsersRepository usersRepository,
-							SessionRepository sessionRepository,
-							PropositionRepository propositionRepository,
-							ReviewsRepository reviewsRepository) {
-		return args -> {
-			usersRepository.save(new User(1, "ayoub", "moussaid", 1500L));
-			usersRepository.save(new User(2, "youssef", "hamid", 2300L));
-
-			sessionRepository.deleteAll();
-			Stream.of("S1 Session une", "S2 Session tanya", "S3 Session talta").forEach(s -> {
-				sessionRepository.save(new Session(s.split(" ")[0], s.split(" ")[1], new Date(), "Room"+s.split(" ")[0]));
-			});
-			sessionRepository.findAll().forEach(System.out::println);
-
-			sessionRepository.deleteAll();
-			Stream.of("S1 Session une", "S2 Session tanya", "S3 Session talta").forEach(s -> {
-				sessionRepository.save(new Session(s.split(" ")[0], s.split(" ")[1], new Date(), "Room"+s.split(" ")[0]));
-			});
-			sessionRepository.findAll().forEach(System.out::println);
-
-
-		};
-
-	}
-
 }

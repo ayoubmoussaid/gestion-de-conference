@@ -8,6 +8,7 @@ import java.util.List;
 
 @Document
 @NoArgsConstructor
+
 public class Cuser {
 	@Id
 	private int id;
