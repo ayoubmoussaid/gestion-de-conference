@@ -6,21 +6,17 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
-
 @Document
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Reviews {
+public class Proposition {
     private String id;
-    private float note;
-    private String comment;
+    private String titre;
+    private String path;
     @DBRef
-    private Conference conference;
+    private Cuser author;
+    private boolean status;
     @DBRef
-    private Cuser user;
-    @DBRef
-    private Proposition proposition;
-
+    private Session session;
 }
