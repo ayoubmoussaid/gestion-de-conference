@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 public class MongoDBConfig {
 	@Bean
 	CommandLineRunner commandLineRunner(UsersRepository usersRepository) {
-		return args -> {
+		return onfeargs -> {
 			usersRepository.save(new User(1, "ayoub", "moussaid", 1500L));
 			usersRepository.save(new User(2, "youssef", "hamid", 2300L));
 		};
