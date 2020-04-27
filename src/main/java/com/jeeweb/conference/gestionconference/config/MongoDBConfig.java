@@ -1,9 +1,9 @@
 package com.jeeweb.conference.gestionconference.config;
 
+import com.jayway.jsonpath.Criteria;
 import com.jeeweb.conference.gestionconference.documents.Conference;
 import com.jeeweb.conference.gestionconference.documents.Cuser;
 import com.jeeweb.conference.gestionconference.documents.Session;
-import com.jeeweb.conference.gestionconference.documents.User;
 import com.jeeweb.conference.gestionconference.repository.ConferenceRepository;
 import com.jeeweb.conference.gestionconference.repository.CuserRepository;
 import com.jeeweb.conference.gestionconference.repository.SessionRepository;
@@ -11,17 +11,13 @@ import com.jeeweb.conference.gestionconference.repository.UsersRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import javax.validation.constraints.Null;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Optional;
-import java.util.stream.Stream;
 
 @Configuration
-public class MongoDBConfig {
+public class MongoDBConfig{
 
 	@Bean
 	CommandLineRunner commandLineRunner(UsersRepository usersRepository,
