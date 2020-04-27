@@ -1,11 +1,13 @@
 package com.jeeweb.conference.gestionconference.documents;
 
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
 @Document
+@NoArgsConstructor
 public class Cuser {
 	@Id
 	private int id;
@@ -121,5 +123,21 @@ public class Cuser {
 
 	public void setSessions(List<Session> sessions) {
 		this.sessions = sessions;
+	}
+
+	@Override
+	public String toString() {
+		return "Cuser{" +
+				"id=" + id +
+				", username='" + username + '\'' +
+				", first_name='" + first_name + '\'' +
+				", last_name='" + last_name + '\'' +
+				", phone='" + phone + '\'' +
+				", email='" + email + '\'' +
+				", password='" + password + '\'' +
+				", role='" + role + '\'' +
+				", conferences=" + conferences +
+				", sessions=" + sessions +
+				'}';
 	}
 }
