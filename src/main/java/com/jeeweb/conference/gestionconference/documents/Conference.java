@@ -3,6 +3,7 @@ package com.jeeweb.conference.gestionconference.documents;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
@@ -15,6 +16,7 @@ public class Conference {
 	private String title;
 	private Date datedebut;
 	private Date datefin;
+	@DBRef
 	private List<Session> sessions;
 
 	@Override

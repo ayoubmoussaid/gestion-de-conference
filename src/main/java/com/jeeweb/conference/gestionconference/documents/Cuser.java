@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
+import java.util.*;
 
 @Document
 @NoArgsConstructor
@@ -20,7 +20,9 @@ public class Cuser {
 	private String email;
 	private String password;
 	private String role;
+	@DBRef
 	private List<Conference> conferences;
+	@DBRef
 	private List<Session> sessions;
 
 	public Cuser(int id, String username, String first_name, String last_name, String phone, String email, String password, String role, List<Conference> conferences, List<Session> sessions) {
@@ -45,6 +47,7 @@ public class Cuser {
 		this.email = email;
 		this.password = password;
 		this.role = role;
+		this.conferences = new ArrayList<Conference>();
 	}
 
 	public int getId() {

@@ -1,6 +1,5 @@
 package com.jeeweb.conference.gestionconference.config;
 
-import com.jayway.jsonpath.Criteria;
 import com.jeeweb.conference.gestionconference.documents.Conference;
 import com.jeeweb.conference.gestionconference.documents.Cuser;
 import com.jeeweb.conference.gestionconference.documents.Session;
@@ -11,7 +10,8 @@ import com.jeeweb.conference.gestionconference.repository.UsersRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.mongodb.repository.Query;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import java.util.Date;
@@ -31,9 +31,12 @@ public class MongoDBConfig{
 			Conference conf = new Conference(1, "intelligence artificielle", new Date(), new Date(), null);
 			conferenceRepository.save(conf);
 
-			Cuser user = cuserRepository.findById(2).get();
+			Cuser user = cuserRepository.findCuserById(2);
+			System.out.println(user.toString());
 			user.getConferences().add(conf);
 			cuserRepository.save(user);
+			user = cuserRepository.findCuserById(2);
+			System.out.println(user.toString());
 		};
 	}
 }
