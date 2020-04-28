@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.*;
 
 
-//ok
 @Document
 @NoArgsConstructor
 public class Cuser {

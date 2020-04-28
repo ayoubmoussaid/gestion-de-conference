@@ -18,8 +18,8 @@ public class Conference {
 	private Date datefin;
 	@DBRef
 	private List<Session> sessions;
-
-	//ok
+	@DBRef
+	private Cuser chair;
 	@Override
 	public String toString() {
 		return "Conference{" +
