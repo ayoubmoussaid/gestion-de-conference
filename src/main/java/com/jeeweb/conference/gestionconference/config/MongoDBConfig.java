@@ -19,25 +19,27 @@ import java.util.Date;
 @Configuration
 public class MongoDBConfig{
 
-	@Bean
-	CommandLineRunner commandLineRunner(UsersRepository usersRepository,
-	                                    SessionRepository sessionRepository,
-	                                    CuserRepository cuserRepository,
-	                                    ConferenceRepository conferenceRepository
-	) {
-		return args -> {
-			cuserRepository.save(new Cuser(1, "rainman", "ayoub", "moussaid", "phonenumber", "test@test.com", "something","admin"));
-			cuserRepository.save(new Cuser(2, "hamid", "achraf", "lasri", "phonenumber", "test@test.com", "something","chair"));
-			Conference conf = new Conference(1, "intelligence artificielle", new Date(), new Date(), null);
-			conferenceRepository.save(conf);
+//	@Bean
+//	CommandLineRunner commandLineRunner(UsersRepository usersRepository,
+//	                                    SessionRepository sessionRepository,
+//	                                    CuserRepository cuserRepository,
+//	                                    ConferenceRepository conferenceRepository
+//	) {
+//		return args -> {
+//			cuserRepository.save(new Cuser(1, "rainman", "ayoub", "moussaid", "phonenumber", "test@test.com", "something","ADMIN"));
+//			cuserRepository.save(new Cuser(2, "hamid", "achraf", "lasri", "phonenumber", "test@test.com", "something","CHAIR"));
+//			Conference conf = new Conference(1, "intelligence artificielle", new Date(), new Date(), null,null);
+//			conferenceRepository.save(conf);
+//
+//			Cuser user = cuserRepository.findCuserById(2);
+//			System.out.println(user.toString());
+//			user.getConferences().add(conf);
+//			cuserRepository.save(user);
+//			user = cuserRepository.findCuserById(2);
+//			System.out.println(user.toString());
+//			//test github
+//		};
+//	}
 
-			Cuser user = cuserRepository.findCuserById(2);
-			System.out.println(user.toString());
-			user.getConferences().add(conf);
-			cuserRepository.save(user);
-			user = cuserRepository.findCuserById(2);
-			System.out.println(user.toString());
-			//test github
-		};
-	}
+
 }

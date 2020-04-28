@@ -6,5 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 public interface CuserRepository extends MongoRepository<Cuser, Integer> {
-	Cuser findCuserById(int id);
+	public Cuser findByUsername(String username);
+
 }
