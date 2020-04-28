@@ -28,7 +28,7 @@ public class MongoDBConfig{
 		return args -> {
 			cuserRepository.save(new Cuser(1, "rainman", "ayoub", "moussaid", "phonenumber", "test@test.com", "something","admin"));
 			cuserRepository.save(new Cuser(2, "hamid", "achraf", "lasri", "phonenumber", "test@test.com", "something","chair"));
-			Conference conf = new Conference(1, "intelligence artificielle", new Date(), new Date(), null);
+			Conference conf = new Conference(1, "intelligence artificielle", new Date(), new Date(), null, null);
 			conferenceRepository.save(conf);
 
 			Cuser user = cuserRepository.findCuserById(2);

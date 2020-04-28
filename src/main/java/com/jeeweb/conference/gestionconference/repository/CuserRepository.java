@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface CuserRepository extends MongoRepository<Cuser, Integer> {
 	Cuser findCuserById(int id);
+	List<Cuser> findCuserByRole(String role);
+	Cuser findCuserByUsernameAndPassword(String username, String password);
 }
