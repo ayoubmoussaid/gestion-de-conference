@@ -3,6 +3,7 @@ package com.jeeweb.conference.gestionconference.documents;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
@@ -14,6 +15,11 @@ public class Session {
     private String title;
     private Date date;
     private String room;
+    @DBRef
+    private Proposition proposition;
+    @DBRef
+    private Conference conference;
+
 
     @Override
     public String toString() {
