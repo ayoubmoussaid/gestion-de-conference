@@ -18,7 +18,7 @@ public class Reviews {
     @DBRef
     private Conference conference;
     @DBRef
-    private Cuser user;
+    private Cuser reviewer;
     @DBRef
     private Proposition proposition;
 
