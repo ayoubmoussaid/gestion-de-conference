@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/conferences/**",
                 "/propositions/**",
                 "/reviews/**",
-                "/sessions/**," +
+                "/sessions/**",
                         "/rest/**").hasAuthority("ADMIN");
         http.authorizeRequests().anyRequest().authenticated();
 

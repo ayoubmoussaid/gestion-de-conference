@@ -1,6 +1,7 @@
 package com.jeeweb.conference.gestionconference.ressources;
 
 
+import com.jeeweb.conference.gestionconference.documents.Conference;
 import com.jeeweb.conference.gestionconference.documents.Cuser;
 import com.jeeweb.conference.gestionconference.repository.CuserRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,4 +23,10 @@ public class CuserRessource {
 	public List<Cuser> getAll(){
 		return cuserRepository.findAll();
 	}
+
+	@GetMapping("/chair")
+	public List<Cuser> getAllChairs(){return cuserRepository.findCuserByRole("CHAIR");}
+
+	@GetMapping("/test")
+	public List<Conference> getAllConference(){return cuserRepository.findByUsername("anotherChair").getConferences();}
 }

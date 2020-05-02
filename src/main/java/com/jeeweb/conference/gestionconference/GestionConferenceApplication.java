@@ -21,7 +21,6 @@ public class GestionConferenceApplication {
 	CommandLineRunner start(AccountService accountService,
 							CuserRepository cuserRepository){
 		return args -> {
-			cuserRepository.deleteAll();
 			Stream.of("admin").forEach(user->{
 				accountService.saveUser(user, "1234", "1234", user.toUpperCase(), null);
 			});
