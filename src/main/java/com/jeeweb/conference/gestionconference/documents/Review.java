@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Reviews {
+public class Review {
     private String id;
     private float note;
     private String comment;
