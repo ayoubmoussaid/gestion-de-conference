@@ -19,12 +19,12 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Cuser saveUser(String username, String password, String confirmedPassword, String firstName, String lastName) {
+    public Cuser saveUser(int id, String username, String password, String confirmedPassword, String firstName, String lastName, String role) {
 
         Cuser userExists = cuserRepository.findByUsername(username);
         if(userExists!=null) throw new RuntimeException("User already exists");
         if(!password.equals(confirmedPassword)) throw new RuntimeException("Password not confirmed");
-        Cuser user = new Cuser(1, username, firstName, lastName, "phonenumber", "test@test.com", bCryptPasswordEncoder.encode(password),"ADMIN");
+        Cuser user = new Cuser(id, username, firstName, lastName, "phonenumber", "test@test.com", bCryptPasswordEncoder.encode(password),role);
         cuserRepository.save(user);
         return user;
     }

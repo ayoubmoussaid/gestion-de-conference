@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class Conference {
 	private Date datedebut;
 	private Date datefin;
 	@DBRef
-	private List<Session> sessions;
+	private List<Session> sessions = new ArrayList<>();
 	@DBRef
 	private Cuser chair;
 	@Override
