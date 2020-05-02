@@ -29,7 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/conferences/**",
                 "/propositions/**",
                 "/reviews/**",
-                "/sessions/**").hasAuthority("ADMIN");
+                "/sessions/**," +
+                        "/rest/**").hasAuthority("ADMIN");
         http.authorizeRequests().anyRequest().authenticated();
 
         http.addFilter(new JWTAuthenticationFilter(authenticationManager()));

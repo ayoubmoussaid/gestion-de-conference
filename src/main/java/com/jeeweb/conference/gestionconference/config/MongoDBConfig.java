@@ -19,7 +19,6 @@ import java.util.Date;
 @Configuration
 public class MongoDBConfig{
 
-<<<<<<< HEAD
 	@Bean
 	CommandLineRunner commandLineRunner(UsersRepository usersRepository,
 	                                    SessionRepository sessionRepository,
@@ -31,7 +30,10 @@ public class MongoDBConfig{
 			cuserRepository.save(new Cuser(2, "hamid", "achraf", "lasri", "phonenumber", "test@test.com", "something","chair"));
 			Conference conf = new Conference(1, "intelligence artificielle", new Date(), new Date(), null, null);
 			conferenceRepository.save(conf);
-=======
+
+		};
+	}
+}
 //	@Bean
 //	CommandLineRunner commandLineRunner(UsersRepository usersRepository,
 //	                                    SessionRepository sessionRepository,
@@ -53,7 +55,3 @@ public class MongoDBConfig{
 //			//test github
 //		};
 //	}
-
->>>>>>> devAchraf
-
-}
