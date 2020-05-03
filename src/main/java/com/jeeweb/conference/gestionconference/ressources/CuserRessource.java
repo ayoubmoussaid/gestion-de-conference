@@ -28,5 +28,5 @@ public class CuserRessource {
 	public List<Cuser> getAllChairs(){return cuserRepository.findCuserByRole("CHAIR");}
 
 	@GetMapping("/test")
-	public List<Conference> getAllConference(){return cuserRepository.findByUsername("anotherChair").getConferences();}
+	public List<Conference> getAllConference(){return cuserRepository.findByUsername("admin").getConferences();}
 }

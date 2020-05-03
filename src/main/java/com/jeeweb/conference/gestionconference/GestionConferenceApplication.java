@@ -1,6 +1,7 @@
 package com.jeeweb.conference.gestionconference;
 
 import com.jeeweb.conference.gestionconference.documents.Conference;
+import com.jeeweb.conference.gestionconference.documents.Cuser;
 import com.jeeweb.conference.gestionconference.repository.*;
 import com.jeeweb.conference.gestionconference.service.AccountService;
 import org.springframework.boot.CommandLineRunner;
@@ -24,11 +25,6 @@ public class GestionConferenceApplication {
 							CuserRepository cuserRepository,
                             ConferenceRepository conferenceRepository){
 		return args -> {
-<<<<<<< HEAD
-			Stream.of("admin").forEach(user->{
-				accountService.saveUser(user, "1234", "1234", user.toUpperCase(), null);
-=======
-			cuserRepository.deleteAll();
 //			Stream.of("1 admin ADMIN", "2 chair CHAIR", "3 anotherChair CHAIR", "4 author AUTHOR", "5 reviewer REVIEWER").forEach(user->{
 //				System.out.println(Integer.parseInt(user.split("")[0]));
 //				System.out.println(user.split("")[1]);
@@ -41,11 +37,11 @@ public class GestionConferenceApplication {
 			accountService.saveUser(4, "author", "1234", "1234", "anaAuthor", null, "AUTHOR");
 			accountService.saveUser(5, "reviewer", "1234", "1234", "anaKanReview", null, "REVIEWER");
 
-			conferenceRepository.deleteAll();
-			Stream.of("1 AI", "2 Corona Virus", "3 The world is ending").forEach(conf->{
-				conferenceRepository.save(new Conference(Integer.parseInt(conf.split("")[0]),conf.split("")[1],new Date(),null,null,null));
->>>>>>> devAchraf
-			});
+			Cuser user = cuserRepository.findCuserById(1);
+			System.out.println(user.toString());
+			Conference conf = conferenceRepository.findConferenceById(1);
+			user.getConferences().add(conf);
+			cuserRepository.save(user);
 		};
 	}
 

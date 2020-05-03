@@ -19,7 +19,7 @@ import java.util.Date;
 @Configuration
 public class MongoDBConfig{
 
-	@Bean
+	/*@Bean
 	CommandLineRunner commandLineRunner(UsersRepository usersRepository,
 	                                    SessionRepository sessionRepository,
 	                                    CuserRepository cuserRepository,
@@ -32,7 +32,7 @@ public class MongoDBConfig{
 			conferenceRepository.save(conf);
 
 		};
-	}
+	}*/
 }
 //	@Bean
 //	CommandLineRunner commandLineRunner(UsersRepository usersRepository,
