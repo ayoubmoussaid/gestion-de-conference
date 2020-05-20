@@ -2,6 +2,7 @@ package com.jeeweb.conference.gestionconference.config;
 
 import com.jeeweb.conference.gestionconference.documents.Conference;
 import com.jeeweb.conference.gestionconference.documents.Cuser;
+import com.jeeweb.conference.gestionconference.documents.Proposition;
 import com.jeeweb.conference.gestionconference.documents.Session;
 import com.jeeweb.conference.gestionconference.repository.ConferenceRepository;
 import com.jeeweb.conference.gestionconference.repository.CuserRepository;
@@ -13,13 +14,22 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 
 import java.util.Date;
 
 @Configuration
-public class MongoDBConfig{
+public class MongoDBConfig implements RepositoryRestConfigurer {
+    @Override
+    public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+        config.exposeIdsFor(Cuser.class);
+        config.exposeIdsFor(Conference.class);
+        config.exposeIdsFor(Session.class);
+        config.exposeIdsFor(Proposition.class);
+    }
 
-//	@Bean
+    //	@Bean
 //	CommandLineRunner commandLineRunner(UsersRepository usersRepository,
 //	                                    SessionRepository sessionRepository,
 //	                                    CuserRepository cuserRepository,
