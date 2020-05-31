@@ -33,6 +33,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(
                 "/cusers/**",
                 "/reviews/**").hasAuthority("ADMIN");
+        http.authorizeRequests().antMatchers(
+                "/cusers/**",
+                "/reviews/**").hasAuthority("CHAIR");
         http.authorizeRequests().anyRequest().authenticated();
 
         http.addFilter(new JWTAuthenticationFilter(authenticationManager()));

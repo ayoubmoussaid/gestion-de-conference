@@ -59,6 +59,7 @@ public class ConferenceRestController {
 class SubmissionForm {
     private String titre;
 }
+
 @Data
 class AuthorAccountInfoForm {
     private String first_name;
